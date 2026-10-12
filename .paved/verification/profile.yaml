@@ -1,0 +1,8 @@
+apiVersion: paved/v1
+kind: VerificationProfile
+checks:
+  - project.detected.npm-build-0d3fac5c
+  - project.detected.npm-test-7c29a6b7
+  - project.detected.npm-test-e2e-test-592f4470
+  - project.detected.npm-test-integration-test-8465f0d2
+  - project.detected.npm-test-unit-test-a11204cb

@@ -1,0 +1,50 @@
+apiVersion: paved/v1
+kind: Lock
+resolved_at: 2026-10-12T20:48:55.733Z
+core:
+  version: 2.6.0
+  source: local-core
+  sha256: 07173bc1f82b0d50ef5ac5896c78bac7174e052a499bcd77548aa8b2c5d950c9
+adapters: []
+generators:
+  - id: project-context/architecture
+    version: 0.2.0
+    source: local-core
+    sha256: 7081d4c54af6cda49b0424773bd6eb3bf93c0c624e5b0b0c42693422233f731c
+  - id: project-context/domain
+    version: 0.2.0
+    source: local-core
+    sha256: 9868a664616079d4c108323386ea1bd36280335d1ee6740990756602cda1b9ac
+  - id: project-context/feature-map
+    version: 0.2.0
+    source: local-core
+    sha256: d34a3c92feaf7fa271f1f686128e01263e115fbfb6d07e0e559be5d23976e62a
+  - id: project-context/integrations
+    version: 0.2.0
+    source: local-core
+    sha256: ce9d40388120068a977ca119460f48e1855d610ea688c1f80ca8f6a5d0793a0f
+  - id: project-context/product
+    version: 0.2.0
+    source: local-core
+    sha256: b997fe389af791011a1ebf19a02640ac520cec8e9e25ef6ef07882dc21302659
+  - id: rules
+    version: 0.2.0
+    source: local-core
+    sha256: 9c2b20f4941fc0edc25753ab1cbae1ee4adf6c19298872081fb31cc3450236c0
+  - id: skills
+    version: 0.1.0
+    source: local-core
+    sha256: c7d2cee85ab5ff39517642d3abeb378dd3dd129aac8da258f6462b61f22a3e9b
+  - id: tools
+    version: 0.1.0
+    source: local-core
+    sha256: f13a60aaa24983b0d36e38ade5202bea8eea4c014b15e9a7f59853d896c81780
+  - id: verification
+    version: 0.2.0
+    source: local-core
+    sha256: 5c19bd3389e59e44952244aa2d3113badb958a138461e15aa31d0c4187ebdca4
+runtime:
+  package: paved-core
+  version: 2.6.0
+  integrity: sha512-St6ohEfmiuNgXVcHZ0lAEl5WBZocI1wGRSrLHlcfUYlhsoQNjMY3GngNwJ+UvuLEXCf6JDwwhmkDv8KK/kfG8w==
+  content_sha256: ec4bbc391fab41bdf3c3bd1888504b399db665480c9769401f1b6fde42755707

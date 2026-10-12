@@ -1,0 +1,38 @@
+apiVersion: paved/v1
+kind: Tool
+id: project.verification.npm-build-0d3fac5c
+version: 0.1.0
+title: Run npm run build
+purpose: Execute the repository-declared npm run build check.
+capability: verification-run
+safety: safe-mutation
+permissions:
+  - repository-read
+  - process-control
+environments:
+  - local
+inputs: []
+outputs:
+  format: text
+  description: Process output and exit status.
+side_effects:
+  - filesystem
+  - process
+preconditions: []
+idempotency: unknown
+timeout_seconds: 900
+retry:
+  max_attempts: 1
+  backoff_seconds: 0
+errors:
+  - execution-failure
+  - timeout
+  - implementation-unavailable
+evidence:
+  capture:
+    - revision
+    - environment
+    - timestamps
+    - output-digest
+availability: available
+confirmation: none

@@ -1,0 +1,16 @@
+.git
+.paved
+.github
+.agents
+node_modules
+dist
+coverage
+tests
+performance
+docs
+.env
+.env.*
+!.env.example
+README.md
+AGENTS.md
+compose.yaml

@@ -1,0 +1,18 @@
+apiVersion: paved/v1
+kind: ToolImplementation
+id: project.verification-binding.npm-test-e2e-test-592f4470
+tool: project.verification.npm-test-e2e-test-592f4470
+version: 0.1.0
+contract: ^0.1.0
+source: project
+environments:
+  - local
+invocation:
+  type: command
+  executable: npm
+  arguments:
+    - run
+    - test:e2e
+  working_directory: .
+  timeout_seconds: 900
+availability: available

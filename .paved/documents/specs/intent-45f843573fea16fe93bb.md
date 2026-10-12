@@ -1,6 +1,6 @@
 # Event Ticket Reservation System
 
-**Status:** design draft for review
+**Status:** approved by the user on 2026-10-12
 
 **Audience:** portfolio reviewers and contributors
 

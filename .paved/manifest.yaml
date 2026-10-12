@@ -1,0 +1,7 @@
+apiVersion: paved/v1
+kind: Project
+project:
+  name: event-ticket-reservation-system
+paved:
+  core: ^2.6.0
+adapters: []

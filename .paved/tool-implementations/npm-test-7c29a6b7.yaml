@@ -1,0 +1,18 @@
+apiVersion: paved/v1
+kind: ToolImplementation
+id: project.verification-binding.npm-test-7c29a6b7
+tool: project.verification.npm-test-7c29a6b7
+version: 0.1.0
+contract: ^0.1.0
+source: project
+environments:
+  - local
+invocation:
+  type: command
+  executable: npm
+  arguments:
+    - run
+    - test
+  working_directory: .
+  timeout_seconds: 900
+availability: available

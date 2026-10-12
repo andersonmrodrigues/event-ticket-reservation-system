@@ -1,0 +1,38 @@
+apiVersion: paved/v1
+kind: Tool
+id: project.verification.npm-test-unit-test-a11204cb
+version: 0.1.0
+title: Run npm run test:unit
+purpose: Execute the repository-declared npm run test:unit check.
+capability: verification-run
+safety: safe-mutation
+permissions:
+  - repository-read
+  - process-control
+environments:
+  - local
+inputs: []
+outputs:
+  format: text
+  description: Process output and exit status.
+side_effects:
+  - filesystem
+  - process
+preconditions: []
+idempotency: unknown
+timeout_seconds: 900
+retry:
+  max_attempts: 1
+  backoff_seconds: 0
+errors:
+  - execution-failure
+  - timeout
+  - implementation-unavailable
+evidence:
+  capture:
+    - revision
+    - environment
+    - timestamps
+    - output-digest
+availability: available
+confirmation: none

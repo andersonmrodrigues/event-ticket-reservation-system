@@ -1,0 +1,73 @@
+apiVersion: paved/v1
+kind: Decision
+id: d-ee65833ed617512411f4
+scope: project
+command: verify
+category: material
+authored_by: runtime
+question: Should the detected repository checks become Paved verification gates?
+reason: These commands already exist in the repository, but Paved authorizes no
+  check implicitly. Adopting them lets verification prove a change before it
+  completes.
+options:
+  - id: all
+    label: All detected checks
+    description: npm run build, npm test, npm run test:e2e, npm run
+      test:integration, npm run test:unit
+    consequence: Every detected check becomes a Paved verification gate.
+  - id: scope-root
+    label: Repository root only
+    description: npm run build, npm test, npm run test:e2e, npm run
+      test:integration, npm run test:unit
+    consequence: Only the checks detected in the repository root become gates.
+  - id: none
+    label: None
+    description: Adopt no checks now.
+    consequence: No verification profile is created and verification stays unavailable.
+recommended_option: all
+evidence:
+  - type: file
+    location: package.json
+    sha256: 17af0f8ae34b30d857046bfe4b54645e9865a2ca7da1cbe104cd9de5b8ce33c9
+required: true
+required_answer:
+  type: single-choice
+risk: low
+reversibility: reversible
+answer_channel: relayed
+effect: config-additive
+handler: verification.adopt
+status: APPLIED
+fingerprint:
+  inputs:
+    - candidate:.:npm-build
+    - candidate:.:npm-test
+    - candidate:.:npm-test-e2e-test
+    - candidate:.:npm-test-integration-test
+    - candidate:.:npm-test-unit-test
+    - evidence:package.json@17af0f8ae34b30d857046bfe4b54645e9865a2ca7da1cbe104cd9de5b8ce33c9
+  sha256: 36399c88adb1fee07ac6b344fac6766d2aca06387ac93e47a22565ab902e475c
+created_at: 2026-10-12T21:22:14.608Z
+asked_at: 2026-10-12T21:22:14.608Z
+answer: all
+answered_by: andersonrodrigues
+answer_source: agent-relayed
+answered_at: 2026-10-12T21:27:46.369Z
+applied_changes:
+  - .paved/verification/checks/npm-build-0d3fac5c.yaml
+  - .paved/tools/npm-build-0d3fac5c.yaml
+  - .paved/tool-implementations/npm-build-0d3fac5c.yaml
+  - .paved/verification/checks/npm-test-7c29a6b7.yaml
+  - .paved/tools/npm-test-7c29a6b7.yaml
+  - .paved/tool-implementations/npm-test-7c29a6b7.yaml
+  - .paved/verification/checks/npm-test-e2e-test-592f4470.yaml
+  - .paved/tools/npm-test-e2e-test-592f4470.yaml
+  - .paved/tool-implementations/npm-test-e2e-test-592f4470.yaml
+  - .paved/verification/checks/npm-test-integration-test-8465f0d2.yaml
+  - .paved/tools/npm-test-integration-test-8465f0d2.yaml
+  - .paved/tool-implementations/npm-test-integration-test-8465f0d2.yaml
+  - .paved/verification/checks/npm-test-unit-test-a11204cb.yaml
+  - .paved/tools/npm-test-unit-test-a11204cb.yaml
+  - .paved/tool-implementations/npm-test-unit-test-a11204cb.yaml
+  - .paved/verification/profile.yaml
+applied_at: 2026-10-12T21:27:46.706Z

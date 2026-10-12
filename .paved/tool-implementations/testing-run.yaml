@@ -1,0 +1,17 @@
+apiVersion: paved/v1
+kind: ToolImplementation
+id: project.testing.binding
+tool: project.testing.run
+version: 0.1.0
+contract: ^0.1.0
+source: project
+environments:
+  - local
+invocation:
+  type: command
+  executable: npm
+  arguments:
+    - test
+  working_directory: .
+  timeout_seconds: 3600
+availability: available

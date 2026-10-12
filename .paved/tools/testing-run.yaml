@@ -1,0 +1,37 @@
+apiVersion: paved/v1
+kind: Tool
+id: project.testing.run
+version: 0.1.0
+title: Run the complete test suite
+purpose: Run the repository's full test suite through its declared npm script.
+capability: testing-run
+safety: safe-mutation
+permissions:
+  - process-control
+environments:
+  - local
+inputs: []
+outputs:
+  format: text
+  description: The test runner's own output; exit code 0 means the tests passed.
+side_effects:
+  - process
+  - filesystem
+preconditions: []
+idempotency: unknown
+timeout_seconds: 3600
+retry:
+  max_attempts: 1
+  backoff_seconds: 0
+errors:
+  - execution-failure
+  - timeout
+  - implementation-unavailable
+evidence:
+  capture:
+    - revision
+    - environment
+    - timestamps
+    - output-digest
+availability: available
+confirmation: none

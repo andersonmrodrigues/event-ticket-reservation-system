@@ -1,0 +1,17 @@
+apiVersion: paved/v1
+kind: Check
+id: project.detected.npm-test-integration-test-8465f0d2
+title: npm run test:integration passes
+purpose: Confirm npm run test:integration succeeds in ..
+type: integration
+tool: project.verification.npm-test-integration-test-8465f0d2
+expected:
+  description: The command exits successfully.
+  exit_code: 0
+failure: The npm run test:integration command failed; inspect its captured output.
+determinism:
+  class: controlled
+  sources:
+    - environment-drift
+  controls: Run against the recorded repository revision and capture the local
+    environment.
