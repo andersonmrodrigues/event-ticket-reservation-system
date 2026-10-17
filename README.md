@@ -2,7 +2,7 @@
 
 Backend API for assigned-seat ticket reservations under high demand. The service focuses on the hard parts of a ticket drop: one owner per seat, all-or-nothing multi-seat holds, idempotent retries, safe expiry, and a FIFO waiting room.
 
-This is a portfolio project, not a payment processor. Confirmation means the booking was accepted by this service. There is no customer-facing frontend or account system; reservation and queue access use opaque bearer capabilities.
+The service does not process payments. Confirmation means the booking was accepted by this service. There is no customer-facing frontend or account system; reservation and queue access use opaque bearer capabilities.
 
 ## Guarantees and boundaries
 
