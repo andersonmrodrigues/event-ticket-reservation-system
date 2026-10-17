@@ -2,7 +2,7 @@
 
 Backend API for assigned-seat ticket reservations under high demand. The service focuses on the hard parts of a ticket drop: one owner per seat, all-or-nothing multi-seat holds, idempotent retries, safe expiry, and a FIFO waiting room.
 
-This is a portfolio project, not a payment processor. Confirmation means the booking was accepted by this service. There is no customer-facing frontend or account system; reservation and queue access use opaque bearer capabilities.
+The service does not process payments. Confirmation means the booking was accepted by this service. There is no customer-facing frontend or account system; reservation and queue access use opaque bearer capabilities.
 
 ## Guarantees and boundaries
 
@@ -60,7 +60,7 @@ Or start the complete containerized stack:
 docker compose up --build
 ```
 
-The Compose stack runs migrations before the API and worker. Local demo credentials are intentionally non-production. Set a unique `CAPABILITY_KEYS` secret of at least 32 characters before deploying anywhere shared.
+The Compose stack runs migrations before the API and worker. The bundled credentials are for local use only. Set a unique `CAPABILITY_KEYS` secret of at least 32 characters before deploying anywhere shared.
 
 ## API examples
 
@@ -95,7 +95,7 @@ curl -i -X POST -H 'Authorization: Bearer <reservation-capability>' \
 
 Inventory discovery endpoints are `GET /v1/events` and `GET /v1/events/:eventId/seats`. Liveness and readiness are exposed at `/health/live` and `/health/ready`; Prometheus metrics are at `/metrics`.
 
-## Checks and contention exercise
+## Testing
 
 ```bash
 npm run format:check
@@ -110,7 +110,7 @@ npm audit --omit=dev
 
 Integration and end-to-end tests use Testcontainers and require Docker. The same-seat integration test launches 25 independent PostgreSQL transactions and proves that exactly one can hold a seat.
 
-The optional k6 scenario demonstrates contention against a running local API:
+An optional k6 scenario exercises seat contention against a running local API:
 
 ```bash
 k6 run performance/reservation-contention.js
